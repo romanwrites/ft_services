@@ -1,5 +1,12 @@
-# ft_services
+# ft_services [in process...]
 Learning to use Kubernetes
+
+> "Kubernetes is an open source project that enables software teams of all sizes, from a small startup to a Fortune 100 company, to automate deploying, scaling, and managing applications on a group or cluster of server machines"
+
+<div style="text-align: right">— Joe Beda</div>
+
+## Install
+coming soon
 
 ## Research / abstract
 
@@ -42,3 +49,6 @@ kubectl get pod -o=custom-columns=NODE:.spec.nodeName,NAME:.metadata.name --all-
 or simply `kubectl get pods -o wide`
 
 `kubectl logs -f monolith` to get a stream of logs in real time
+
+## Links
+* [Kubernetes cheatsheet](https://kubernetes.io/docs/reference/kubectl/cheatsheet/)
