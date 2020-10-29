@@ -1,7 +1,8 @@
 # ft_services [in process...]
 Learning to use Kubernetes
 
-> "Kubernetes is an open source project that enables software teams of all sizes, from a small startup to a Fortune 100 company, to automate deploying, scaling, and managing applications on a group or cluster of server machines"
+> "Kubernetes is an open source project that enables software teams of all sizes, from a small startup to a Fortune 100 company, to automate deploying, scaling, and managing applications on a group or cluster of server machines.
+>These applications can include everything from internal-facing web applications like a content management sysrtem to marquee web properties like Gmail to big data processing."
 
 <div style="text-align: right">— Joe Beda</div>
 
@@ -9,6 +10,26 @@ Learning to use Kubernetes
 coming soon
 
 ## Research / abstract
+Kubernetes has a plug-n-play architecture that allows to extend it when need to.
+
+Health checks are available from a box. Such as: TCP, HTTP or container execution.
+
+### Abstractions
+
+#### Pod
+
+Pod is container in k8s
+
+Pods can be assigned to nodes
+
+Pods can use persistent volumes to store data
+
+#### Node
+node			
+
+#### Cluster
+cluster
+```
 
 Kubernetes auto-completion.
 ```
