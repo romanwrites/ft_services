@@ -8,16 +8,19 @@ spec:
   selector:
     app: nginx
   type: LoadBalancer #если не будет, будет обычный тип дефолтный cluster ip
-  loadBalancerIP: 192.168.99.102
+  loadBalancerIP: 192.168.99.101
   ports: #какие порты должны быть открыты. Бывает несовпадение портов с докером. почитать: https://habr.com/ru/company/flant/blog/484954/
     - port: 80
       name: http
+      protocol: TCP
       targetPort: 80
     - port: 443
       name: https
+      protocol: TCP
       targetPort: 443
     - port: 22
       name: ssh
+      protocol: TCP
       targetPort: 22
 
 ---
