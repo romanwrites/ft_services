@@ -3,6 +3,7 @@ FROM alpine:latest
 RUN apk update && apk upgrade
 RUN apk add nginx openssl openssh openrc supervisor
 
+#openrc устанавливает много пакетов, это чтобы спрятать
 VOLUME ["/sys/fs/cgroup"]
 
 RUN mkdir -p /run/nginx

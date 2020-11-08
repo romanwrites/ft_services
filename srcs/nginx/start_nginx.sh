@@ -1,6 +1,5 @@
-mkdir /run/nginx/
 rc default
-rc-service sshd start
-ssh-keygen -A
-rc-service sshd stop
+# rc-service sshd start
+# ssh-keygen -A
+# rc-service sshd stop
 /usr/bin/supervisord -c /etc/supervisord.conf
