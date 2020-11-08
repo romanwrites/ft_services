@@ -6,7 +6,7 @@ minikube addons enable metrics-server; #do need?
 minikube addons enable dashboard;
 
 kubectl apply -f srcs/metallb.yaml
-docker build -t nginx srcs/nginx/
+docker build -t nginx-image srcs/nginx/
 
 kubectl apply -f srcs/nginx/nginx.yaml
 
