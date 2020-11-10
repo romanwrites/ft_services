@@ -1,8 +1,15 @@
-minikube start --vm-driver=virtualbox --cpus=2 --disk-size="10000mb" --memory="3000mb"
+# export MINIKUBE_HOME="$HOME/goinfre/.minikube"
+# export PATH="$MINIKUBE_HOME/bin:$PATH"
+# export KUBECONFIG="$MINIKUBE_HOME/.kube/config"
+# export MINIKUBE_ACTIVE_DOCKERD=minikube
+# export KUBE_EDITOR="code -w"
+# export MACHINE_STORAGE_PATH=~/goinfre/mkristie/.docker
+
+minikube start --vm-driver=virtualbox --disk-size="5000mb" --memory="3000mb"
 eval $(minikube docker-env)
 
 minikube addons enable metallb;
-minikube addons enable metrics-server; #do need?
+minikube addons enable metrics-server;
 minikube addons enable dashboard;
 
 kubectl apply -f srcs/metallb.yaml

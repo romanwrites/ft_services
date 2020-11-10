@@ -10,6 +10,9 @@ Learning to use Kubernetes
 coming soon
 
 ## Research / abstract
+
+* [Nginx documentation](http://nginx.org/en/docs/beginners_guide.html)
+
 Kubernetes has a plug-n-play architecture that allows to extend it when need to.
 
 Health checks are available from a box. Such as: TCP, HTTP or container execution.
