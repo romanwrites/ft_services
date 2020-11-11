@@ -3,25 +3,36 @@ FROM	alpine:latest
 RUN		apk update && apk upgrade
 RUN		apk add nginx openssl openssh openrc supervisor
 
+RUN		adduser -D -g 'www' www
+RUN		echo "www:mkristie" | chpasswd
+
+RUN		mkdir /www
+RUN		chown -R www:www /var/lib/nginx
+RUN		chown -R www:www /www
+
 #openrc устанавливает много пакетов, это чтобы спрятать
 VOLUME	["/sys/fs/cgroup"]
 
-RUN		mkdir -p /run/nginx
+RUN		mkdir -p /run/nginx && chown -R nginx:nginx /run/nginx
 
 COPY	./cfg/nginx.conf /etc/nginx/.
 
-COPY	nginx-selfsigned.key /etc/nginx/nginx-selfsigned.key
-COPY	nginx-selfsigned.crt /etc/nginx/nginx-selfsigned.crt
-# RUN openssl req -x509 -nodes -days 365 -newkey rsa:2048 \
-# 	-subj "/C=ru/ST=Moscow/L=Moscow/O=no/OU=no/CN=mkristie/" \
-# 	-keyout /etc/nginx/nginx-selfsigned.key -out /etc/nginx/nginx-selfsigned.crt
+COPY	./cfg/nginx-selfsigned.key /etc/nginx/nginx-selfsigned.key
+COPY	./cfg/nginx-selfsigned.crt /etc/nginx/nginx-selfsigned.crt
 
-COPY	./cfg/supervisord.conf /etc/.
+COPY	./cfg/supervisord.conf /etc/supervisord.conf
+RUN		chmod +rw /etc/supervisord.conf
 
-RUN		echo -e "mkristie1\mkristie1\n" | adduser mkristie
+# RUN		echo -e "mkristie1\nmkristie1\n" | adduser mkristie
+# RUN		echo -e "myPasswordAdm11\nmyPasswordAdm11\n" | adduser mkristie
+
+# RUN		adduser -D -g 'www' www; mkdir /www; \
+# 		chown -R www:www /var/lib/nginx; \
+# 		chown -R www:www /www;
 
 COPY	./start_nginx.sh .
-RUN		chmod u+x /tmp/start.sh
+COPY	./cfg/index.html /www
+RUN		chmod u+x start_nginx.sh
 
 EXPOSE	80 443 22
 

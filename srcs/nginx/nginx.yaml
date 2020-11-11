@@ -4,11 +4,13 @@ metadata:
   name: nginx-service
   labels:
     app: nginx
+  annotations:
+    metallb.universe.tf/allow-shared-ip: metallb
 spec:
+  type: LoadBalancer #если не будет, будет обычный тип дефолтный cluster ip
+  loadBalancerIP: 192.168.99.221
   selector:
     app: nginx
-  type: LoadBalancer #если не будет, будет обычный тип дефолтный cluster ip
-  loadBalancerIP: 192.168.99.101
   ports: #какие порты должны быть открыты. Бывает несовпадение портов с докером. почитать: https://habr.com/ru/company/flant/blog/484954/
     - port: 80
       name: http
@@ -27,14 +29,14 @@ spec:
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: nginx
+  name: nginx-deployment
   labels:
     app: nginx
 spec:
+  replicas: 1
   selector:
     matchLabels:
       app: nginx
-  replicas: 1
   strategy:
     type: Recreate
   template:

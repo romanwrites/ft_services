@@ -1,4 +1,6 @@
-openrc default
+#!/bin/sh
+
+rc default
 rc-service sshd start
 ssh-keygen -A
 rc-service sshd stop
