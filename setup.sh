@@ -12,11 +12,13 @@ minikube addons enable metallb;
 minikube addons enable metrics-server;
 minikube addons enable dashboard;
 
-docker build -t nginx-image srcs/nginx/
 kubectl apply -f srcs/metallb.yaml
 
+# docker build -t nginx-image srcs/nginx
+# kubectl apply -f srcs/nginx/nginx.yaml
 
-kubectl apply -f srcs/nginx/nginx.yaml
+docker build -t ftps-image srcs/ftps
+kubectl apply -f srcs/ftps/ftps.yaml
 
 minikube dashboard
 
