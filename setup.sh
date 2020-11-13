@@ -5,7 +5,7 @@
 # export KUBE_EDITOR="code -w"
 # export MACHINE_STORAGE_PATH=~/goinfre/mkristie/.docker
 
-minikube start --vm-driver=virtualbox --disk-size="5000mb" --memory="3000mb"
+minikube start --vm-driver=virtualbox #--disk-size="5000mb" --memory="3000mb"
 eval $(minikube docker-env)
 
 minikube addons enable metallb;
@@ -17,8 +17,11 @@ kubectl apply -f srcs/metallb.yaml
 # docker build -t nginx-image srcs/nginx
 # kubectl apply -f srcs/nginx/nginx.yaml
 
-docker build -t ftps-image srcs/ftps
-kubectl apply -f srcs/ftps/ftps.yaml
+# docker build -t ftps-image srcs/ftps
+# kubectl apply -f srcs/ftps/ftps.yaml
+
+docker build -t mariadb-image srcs/mysql
+kubectl apply -f srcs/mysql/mariadb.yaml
 
 minikube dashboard
 
