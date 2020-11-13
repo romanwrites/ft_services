@@ -1,7 +1,7 @@
 FROM	alpine:latest
 
 RUN		apk update && apk upgrade
-RUN		apk add vsftpd openssl
+RUN		apk add vsftpd 
 
 COPY	cfg/ftps-selfsigned.crt /etc/ssl/certs/ftps-selfsigned.crt
 COPY	cfg/ftps-selfsigned.key /etc/ssl/private/ftps-selfsigned.key
