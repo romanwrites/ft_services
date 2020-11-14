@@ -11,6 +11,8 @@ coming soon
 
 ## Research / abstract
 
+* [Kubernetes Tutorial for Beginners [Full Course in 4 Hours]](https://youtu.be/X48VuDVv0do)
+
 * [Nginx documentation](http://nginx.org/en/docs/beginners_guide.html)
 
 Kubernetes has a plug-n-play architecture that allows to extend it when need to.
