@@ -15,6 +15,13 @@ coming soon
 
 * [Nginx documentation](http://nginx.org/en/docs/beginners_guide.html)
 
+### Enabling zsh autocompletion
+
+Add this to `~/.zshrc`
+```
+source <(kubectl completion zsh)
+```
+
 Kubernetes has a plug-n-play architecture that allows to extend it when need to.
 
 Health checks are available from a box. Such as: TCP, HTTP or container execution.
