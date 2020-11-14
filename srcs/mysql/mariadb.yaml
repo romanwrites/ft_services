@@ -2,6 +2,8 @@ apiVersion: v1
 kind: Service
 metadata:
   name: mariadb-service
+  labels:
+    app: mariadb
 spec:
   type: ClusterIP
   ports:
@@ -16,6 +18,8 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: mariadb-deployment
+  labels:
+    app: mariadb
 spec:
   selector:
     matchLabels:
@@ -56,7 +60,9 @@ spec:
   accessModes:
     - ReadWriteOnce
   hostPath:
-    path: "/mnt/data_mariadb"
+    path: "/var/lib/mysql"
+  claimRef:
+    name: mysql-pvc
 
 ---
 
@@ -64,8 +70,9 @@ apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
   name: mariadb-pvc
+  labels:
+    app: mariadb
 spec:
-  storageClassName: manual
   accessModes:
     - ReadWriteOnce
   resources:
