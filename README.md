@@ -26,6 +26,18 @@ Kubernetes has a plug-n-play architecture that allows to extend it when need to.
 
 Health checks are available from a box. Such as: TCP, HTTP or container execution.
 
+
+
+### Useful commands
+```
+kubectl get pods
+kubectl get replicaset
+kubectl create deployment nginx-deployment --image=nginx
+kubectl edit deployment [name]
+kubectl logs [pod name]
+kubectl exec -it [pod name] -- bin/bash
+```
+
 ### Abstractions
 
 #### Pod
@@ -85,3 +97,8 @@ or simply `kubectl get pods -o wide`
 
 ## Links
 * [Kubernetes cheatsheet](https://kubernetes.io/docs/reference/kubectl/cheatsheet/)
+
+
+Deployment manages a ReplicaSet
+Replicaset manages a Pod
+Pod is an abstraction of Container
