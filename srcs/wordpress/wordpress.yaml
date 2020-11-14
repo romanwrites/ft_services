@@ -1,11 +1,11 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: wordpress-server
+  name: wordpress-service
   labels:
     app: wordpress
   annotations:
-    metallb.universe.tf/allow-shared-ip: minikube
+    metallb.universe.tf/allow-shared-ip: metallb
 spec:
   externalTrafficPolicy: Cluster
   type: LoadBalancer
@@ -23,7 +23,7 @@ spec:
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: wordpress-deployment
+  name: wordpress
   labels:
     app: wordpress
 spec:

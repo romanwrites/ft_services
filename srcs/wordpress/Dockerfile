@@ -4,12 +4,10 @@ RUN		apk update && apk upgrade
 RUN		apk add wget nginx openrc supervisor php7 php7-fpm php7-mysqli php7-zlib php7-curl php7-mbstring php7-json php7-session
 
 RUN		apk add openrc nginx supervisor
-# RUN		mkdir -p /run/nginx && chown -R nginx:nginx /run/nginx
 
 RUN		adduser -D -g 'www' www
-# RUN		mkdir /www && chown -R www:www /var/lib/nginx && chown -R www:www /www
+
 RUN		mkdir /www && chown -R www:www /var/lib/nginx && chown -R www:www /www 
-#&& mkdir -p /run/nginx
 
 RUN		wget https://wordpress.org/latest.zip
 RUN		unzip latest.zip
@@ -26,4 +24,3 @@ RUN 	chmod 711 start_wp.sh
 EXPOSE	5050
 
 CMD		sh start_wp.sh
-# CMD		/usr/bin/supervisord -c /etc/supervisord.conf
