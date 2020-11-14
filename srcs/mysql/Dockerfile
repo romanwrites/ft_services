@@ -3,6 +3,8 @@ FROM	alpine:latest
 RUN		apk update && apk upgrade
 RUN		apk add mariadb mariadb-client openrc
 
+RUN		mkdir "/run/mysqld" && chown -R mysql /run/mysqld
+
 VOLUME	["/sys/fs/cgroup"]
 
 COPY	create_db.sql .
