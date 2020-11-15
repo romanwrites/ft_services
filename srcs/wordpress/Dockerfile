@@ -16,7 +16,7 @@ RUN		rm latest.zip
 
 COPY	nginx.conf /etc/nginx/conf.d/default.conf
 COPY	supervisord.conf /etc/supervisord.conf
-COPY	wp-config.php /www/
+COPY	wp-config.php /www/wordpress
 
 COPY	start_wp.sh .
 RUN 	chmod 711 start_wp.sh
