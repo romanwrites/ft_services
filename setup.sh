@@ -5,7 +5,7 @@
 # export KUBE_EDITOR="code -w"
 # export MACHINE_STORAGE_PATH=~/goinfre/mkristie/.docker
 
-minikube start --vm-driver=virtualbox --disk-size="5000mb" --memory="3000mb"
+minikube start --vm-driver=virtualbox --disk-size="7000mb" --memory="3000mb"
 eval $(minikube docker-env)
 
 minikube addons enable metallb;
@@ -34,6 +34,9 @@ kubectl apply -f srcs/influxdb/influxdb.yaml
 
 docker build -t telegraf-image srcs/telegraf
 kubectl apply -f srcs/telegraf/telegraf.yaml
+
+docker build -t grafana-image srcs/grafana
+kubectl apply -f srcs/grafana/grafana.yaml
 
 # minikube dashboard
 

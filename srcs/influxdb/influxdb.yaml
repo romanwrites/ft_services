@@ -18,17 +18,16 @@ spec:
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: influxdb-deployment
+  name: influxdb
   labels:
     app: influxdb
 spec:
   selector:
     matchLabels:
       app: influxdb
-  replicas: 1
-  strategy:
-    type: Recreate
-  # minReadySeconds: 5
+  # replicas: 1
+  # strategy:
+  #   type: Recreate
   template:
     metadata:
       labels:
@@ -38,12 +37,9 @@ spec:
       - name: influxdb-container
         image: influxdb-image
         imagePullPolicy: Never
-        # resources:
-        #   limits:
-        #     memory: "512Mi"
-        #     cpu: "500m"
         ports:
-        - containerPort: 8086
+          - containerPort: 8086
+            name: influxdb
         volumeMounts:
           - name: influxdb-pv
             mountPath: /var/lib/influxdb
@@ -57,7 +53,7 @@ spec:
           claimName: influxdb-pvc
       - name: influxdb-conf
         configMap:
-            name: influxdb-conf
+          name: influxdb-conf
 
 ---
 
@@ -103,15 +99,15 @@ metadata:
     app: influxdb
 data:
   influxdb.conf: |
-    bind-adress = "127.0.0.1:8088"
+    bind-address = "127.0.0.1:8088"
     [meta]
       dir = "/var/lib/influxdb/meta"
     [data]
       dir = "/var/lib/influxdb/data"
       wal-dir = "/var/lib/influxdb/wal"
-      trace-logging-enable = true
+      trace-logging-enabled = true
     [http]
-      bind-addres = ":8086"
+      bind-address = ":8086"
       log-enabled = true
     [[graphite]]
       database = "telegraf"
