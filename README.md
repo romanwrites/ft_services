@@ -36,6 +36,7 @@ kubectl create deployment nginx-deployment --image=nginx
 kubectl edit deployment [name]
 kubectl logs [pod name]
 kubectl exec -it [pod name] -- bin/bash
+kubectl cp [pod name]:[dir or file name] [desired path to dir or file name]
 ```
 
 ### Abstractions
