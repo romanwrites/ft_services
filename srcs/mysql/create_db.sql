@@ -1,4 +1,7 @@
+-- CREATE DATABASE wp_db;
+-- CREATE USER 'mkristie'@'%' IDENTIFIED BY 'mkristie';
+-- GRANT ALL PRIVILEGES ON wp_bd.sql TO 'mkristie'@'%';
+-- FLUSH PRIVILEGES;
 CREATE DATABASE wp_db;
-CREATE USER 'mkristie'@'%' IDENTIFIED BY 'mkristie';
-GRANT ALL PRIVILEGES ON wp_bd.sql TO 'mkristie'@'%';
+GRANT ALL PRIVILEGES ON *.* TO 'mkristie'@'%' IDENTIFIED BY 'mkristie' WITH GRANT OPTION;
 FLUSH PRIVILEGES;
