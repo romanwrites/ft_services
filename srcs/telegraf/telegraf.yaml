@@ -19,7 +19,7 @@ spec:
         app: telegraf
     spec:
       containers:
-        - name: telegraf
+        - name: telegraf-container
           image: telegraf-image
           imagePullPolicy: Never
           volumeMounts:

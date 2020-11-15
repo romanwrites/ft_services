@@ -15,7 +15,5 @@ RUN		wget https://github.com/sgerrand/alpine-pkg-glibc/releases/download/2.32-r0
 RUN		apk add glibc-2.32-r0.apk
 
 # reference https://docs.influxdata.com/telegraf/v1.11/introduction/getting-started/
-
-EXPOSE	8086
-
+# telegraf -sample-config telegraf.conf --input-filter cpu:mem --output-filter influxdb > telegraf.conf
 CMD		telegraf
