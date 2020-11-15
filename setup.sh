@@ -14,20 +14,26 @@ minikube addons enable dashboard;
 
 kubectl apply -f srcs/metallb.yaml
 
-docker build -t nginx-image srcs/nginx
-kubectl apply -f srcs/nginx/nginx.yaml
+# docker build -t nginx-image srcs/nginx
+# kubectl apply -f srcs/nginx/nginx.yaml
 
-docker build -t ftps-image srcs/ftps
-kubectl apply -f srcs/ftps/ftps.yaml
+# docker build -t ftps-image srcs/ftps
+# kubectl apply -f srcs/ftps/ftps.yaml
 
-docker build -t mariadb-image srcs/mysql
-kubectl apply -f srcs/mysql/mariadb.yaml
+# docker build -t mariadb-image srcs/mysql
+# kubectl apply -f srcs/mysql/mariadb.yaml
 
-docker build -t wordpress-image srcs/wordpress
-kubectl apply -f srcs/wordpress/wordpress.yaml
+# docker build -t wordpress-image srcs/wordpress
+# kubectl apply -f srcs/wordpress/wordpress.yaml
 
-docker build -t phpmyadmin-image srcs/phpmyadmin
-kubectl apply -f srcs/phpmyadmin/phpmyadmin.yaml
+# docker build -t phpmyadmin-image srcs/phpmyadmin
+# kubectl apply -f srcs/phpmyadmin/phpmyadmin.yaml
+
+docker build -t influxdb-image srcs/influxdb
+kubectl apply -f srcs/influxdb/influxdb.yaml
+
+docker build -t telegraf-image srcs/telegraf
+kubectl apply -f srcs/telegraf/telegraf.yaml
 
 # minikube dashboard
 
