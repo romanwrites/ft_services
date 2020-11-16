@@ -38,7 +38,7 @@ kubectl apply -f srcs/telegraf/telegraf.yaml
 docker build -t grafana-image srcs/grafana
 kubectl apply -f srcs/grafana/grafana.yaml
 
-# minikube dashboard
+minikube dashboard
 
 # kubectl delete all --all
 # kubectl delete pvc --all

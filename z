@@ -1,0 +1,31 @@
+NAME                          READY   STATUS    RESTARTS   AGE
+ftps-694567ccd4-4hkfl         1/1     Running   5          127m
+grafana-7b89bc96df-rkrd2      1/1     Running   1          160m
+influxdb-594c64bb89-g4tbb     1/1     Running   0          161m
+mariadb-5645974554-t4648      1/1     Running   0          162m
+nginx-85c4c8f46b-k4cgg        1/1     Running   0          162m
+phpmyadmin-69b5649bdd-zvmz9   1/1     Running   0          161m
+telegraf-85d5bdd57d-wlpjl     1/1     Running   0          160m
+wordpress-95dfc8d57-jz4qg     1/1     Running   0          161m
+
+
+NAME                 TYPE           CLUSTER-IP       EXTERNAL-IP      PORT(S)                                     AGE
+ftps-service         LoadBalancer   10.107.102.254   192.168.99.221   20:32545/TCP,21:30428/TCP,21000:32442/TCP   162m
+grafana-service      LoadBalancer   10.96.191.16     192.168.99.221   3000:31601/TCP                              160m
+influxdb-service     ClusterIP      10.105.194.231   <none>           8086/TCP                                    161m
+kubernetes           ClusterIP      10.96.0.1        <none>           443/TCP                                     162m
+mariadb-service      ClusterIP      10.104.142.22    <none>           3306/TCP                                    162m
+nginx-service        LoadBalancer   10.107.219.146   192.168.99.221   80:32564/TCP,443:31596/TCP,22:30846/TCP     162m
+phpmyadmin-service   LoadBalancer   10.96.122.36     192.168.99.221   5000:30581/TCP                              161m
+wordpress-service    LoadBalancer   10.99.24.191     192.168.99.221   5050:30033/TCP                              161m
+
+
+NAME         READY   UP-TO-DATE   AVAILABLE   AGE
+ftps         1/1     1            1           162m
+grafana      1/1     1            1           160m
+influxdb     1/1     1            1           161m
+mariadb      1/1     1            1           162m
+nginx        1/1     1            1           162m
+phpmyadmin   1/1     1            1           161m
+telegraf     1/1     1            1           161m
+wordpress    1/1     1            1           161m
