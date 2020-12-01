@@ -1,10 +1,3 @@
-# export MINIKUBE_HOME="$HOME/goinfre/.minikube"
-# export PATH="$MINIKUBE_HOME/bin:$PATH"
-# export KUBECONFIG="$MINIKUBE_HOME/.kube/config"
-# export MINIKUBE_ACTIVE_DOCKERD=minikube
-# export KUBE_EDITOR="code -w"
-# export MACHINE_STORAGE_PATH=~/goinfre/mkristie/.docker
-
 minikube start --vm-driver=virtualbox --disk-size="7000mb" --memory="3000mb"
 eval $(minikube docker-env)
 
@@ -40,10 +33,7 @@ kubectl apply -f srcs/grafana/grafana.yaml
 
 minikube dashboard
 
-# kubectl delete all --all
-# kubectl delete pvc --all
-# kubectl delete pv --all
-
+# COMMANDS TO KILL PROCESSES
 # kubectl exec deploy/ftps -- pkill vsftpd
 # kubectl exec deploy/grafana -- pkill grafana
 # kubectl exec deploy/telegraf -- pkill telegraf
@@ -56,4 +46,13 @@ minikube dashboard
 # kubectl exec deploy/nginx -- pkill nginx
 # kubectl exec deploy/nginx -- pkill sshd
 
+# RUN COMMAND IN INTERCATIVE TERMINAL MODE
 # kubectl exec -it deploy/ftps -- /bin/sh
+
+# EXPORTS IF NEEDED
+# export MINIKUBE_HOME="$HOME/goinfre/.minikube"
+# export PATH="$MINIKUBE_HOME/bin:$PATH"
+# export KUBECONFIG="$MINIKUBE_HOME/.kube/config"
+# export MINIKUBE_ACTIVE_DOCKERD=minikube
+# export KUBE_EDITOR="code -w"
+# export MACHINE_STORAGE_PATH=~/goinfre/mkristie/.docker
