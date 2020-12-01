@@ -1,4 +1,4 @@
-# ft_services [in process...]
+# ft_services
 Learning to use Kubernetes
 
 <img src="img/cover.png"/>
